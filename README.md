@@ -16,9 +16,10 @@ The code I submitted should be able to support the following features:
 -Filter tue data by day of week
 -Display key stats (time, station, trip duration, user stats)
 -View raw data by every 5 rows
+-Washington data does not have gender and birth year columns. When the user selects washington as the city you need to skip analysis related with gender and birth year.
 
 ### Files used
 bikeshare.py my python code
 
 ### Credits
-I completed this project with the help from Stackoverflow site
+I completed this project with the help from Stackoverflow site and Udacity instructor

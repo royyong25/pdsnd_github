@@ -181,18 +181,25 @@ def user_stats(df):
     print('\n')
 
     # Display counts of gender
-    gender = df['Gender'].value_counts()
-    print(gender)
+    if 'Gender' in df.columns:
+        gender = df['Gender'].value_counts()
+        print(gender)
+    else:
+        print('This city doesn\'t have \"Gender\" related data.')
     print('\n')
 
     # Display earliest, most recent, and most common year of birth
-    earliest_year = df['Birth Year'].min()
-    recent_year = df['Birth Year'].max()
-    popular_year = df['Birth Year'].mode()[0]
+    if 'Gender' in df.columns:
+        earliest_year = df['Birth Year'].min()
+        recent_year = df['Birth Year'].max()
+        popular_year = df['Birth Year'].mode()[0]
 
-    print('Earliest year of birth: ', earliest_year)
-    print('Most recent year of birth: ', recent_year)
-    print('Most common year of birth: ', popular_year)
+        print('Earliest year of birth: ', earliest_year)
+        print('Most recent year of birth: ', recent_year)
+        print('Most common year of birth: ', popular_year)
+    else:
+        print('This city doesn\'t have \"Birth Year\" related data.')
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('\n')
