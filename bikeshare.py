@@ -207,22 +207,11 @@ def raw_data(df):
     start_loc = 0
     question = '\nWould you like to view 5 rows of user data? Enter yes or no.\n'
     while True:
-        try:
-            view_data = input(question)
-            view_data = view_data.lower()
-        except ValueError:
-            print("Sorry, it is not a valid answer.")
-            continue
-        if view_data not in ("yes","no"):
-            print("Sorry, it is not a valid answer.")
-            continue
-        elif view_data == "yes":
-            print(df.iloc[start_loc:start_loc + 5])
-            start_loc += 5
-            question = '\nWould you like to continue? Enter yes or no.\n'
-            continue
-        elif view_data == "no":
+        display_data = input('\nWould you like to see 5 lines of raw data? Enter yes or no.\n')
+        if display_data.lower() != 'yes':
             break
+        print(tabulate(df_default.iloc[np.arange(0+i,5+i)], headers ="keys"))
+        i+=5
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
